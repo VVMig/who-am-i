@@ -32,10 +32,13 @@ dd {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  overflow: hidden;
+  background: ${({ theme }) => theme.colors.mainBackground};
+  font-family: 'Roboto', sans-serif;
 }
 
 ul[class],
