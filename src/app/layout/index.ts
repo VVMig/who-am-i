@@ -1,2 +1,3 @@
 export * from './Container';
-export * from './Header';
+export * from './header/Header';
+export { pageAnimationDuration } from './styled';

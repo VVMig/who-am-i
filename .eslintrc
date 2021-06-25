@@ -3,7 +3,8 @@
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
     "no-magic-numbers": ["error", {
-      "ignoreArrayIndexes": true
+      "ignoreArrayIndexes": true,
+      "ignoreDefaultValues": true
     }],
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",

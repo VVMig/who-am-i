@@ -1,3 +1,3 @@
-export interface ActiveStyledProps {
-  isActive?: boolean;
+export interface ContainerProps {
+  isPush: boolean;
 }
