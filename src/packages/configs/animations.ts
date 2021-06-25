@@ -18,6 +18,40 @@ export const rotate = keyframes`
   }
 `;
 
+export const pageAppear = keyframes`
+  0% {
+    position: absolute;
+    width: 100%;
+    transform: translate(100%, 0);
+  }
+  50% {
+    transform: translate(60%, 0);
+  }
+  100% {
+    position: absolute;
+    width: 100%;
+
+    transform: translate(0, 0);
+
+  }
+`;
+
+export const pageDisappear = keyframes`
+  0% {
+    position: absolute;
+    width: 100%;
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-40%, 0);
+  }
+  100% {
+    position: absolute;
+    width: 100%;
+    transform: translate(-100%, 0);
+  }
+`;
+
 export const appearSide = keyframes`
   0% {
     overflow: hidden;
@@ -46,5 +80,32 @@ export const storm = keyframes`
   }
   100% {
     transform: translate3d(0, 0, 0) translateZ(0);
+  }
+`;
+
+export const ldsEllipsis3 = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+`;
+
+export const ldsEllipsis1 = keyframes`
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+export const ldsEllipsis2 = keyframes`
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
   }
 `;
