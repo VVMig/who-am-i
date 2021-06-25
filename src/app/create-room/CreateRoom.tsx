@@ -21,13 +21,13 @@ export const CreateRoom = () => {
   const [maxParticipants, setMaxParticipants] = useState<null | number>(null);
 
   const onChangeRange: React.FormEventHandler<HTMLInputElement> = (event) => {
-    setMaxParticipants(Number(event.currentTarget.value));
+    setMaxParticipants(+event.currentTarget.value);
   };
 
   const onClickCreateRoom = () => {
     createRoom({
       variables: {
-        maxParticipants: `${maxParticipants}`,
+        maxParticipants,
       },
     });
   };

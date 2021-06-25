@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const CREATE_ROOM = gql`
-  mutation CreateRoom($maxParticipants: String) {
+  mutation CreateRoom($maxParticipants: Int) {
     createRoom(maxParticipants: $maxParticipants) {
       id
       shareId

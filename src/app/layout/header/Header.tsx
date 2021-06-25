@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Styled } from './styled';
-import { SwitchLang } from './SwitchLang';
+import { SwitchLanguage } from './SwitchLanguage';
 import { User } from './User';
 
 export const Header = () => {
@@ -20,7 +20,10 @@ export const Header = () => {
 
   return (
     <Styled.Header>
-      <SwitchLang isLangActive={isLangActive} onToggleLang={onToggleLang} />
+      <SwitchLanguage
+        isLanguageActive={isLangActive}
+        onToggleLang={onToggleLang}
+      />
 
       <User isUserActive={isUserActive} onToggleUser={onToggleUser} />
     </Styled.Header>
