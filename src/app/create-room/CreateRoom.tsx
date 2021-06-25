@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 
 import { Button, Spinner } from '../../packages';
 import {
@@ -9,16 +10,28 @@ import {
   GetRangeParticipantsQuery,
   GET_RANGE_PARTICIPANTS,
 } from '../query';
+import { RoutesEnum } from '../RoutesEnum';
+import { MaxParticipants } from './MaxParticipants';
 import { Styled } from './styled';
 
+const defaultMaxParticipants = 2;
+
 export const CreateRoom = () => {
+  const history = useHistory();
+
   const [createRoom, { data: roomData, loading: roomLoading }] =
     useMutation<CreatRoomQuery>(CREATE_ROOM);
 
   const { data: rangeData, loading: rangeLoading } =
     useQuery<GetRangeParticipantsQuery>(GET_RANGE_PARTICIPANTS);
 
-  const [maxParticipants, setMaxParticipants] = useState<null | number>(null);
+  const [maxParticipants, setMaxParticipants] = useState<number>(
+    defaultMaxParticipants
+  );
+
+  const onClickBackToMenu = () => {
+    history.push(RoutesEnum.Home);
+  };
 
   const onChangeRange: React.FormEventHandler<HTMLInputElement> = (event) => {
     setMaxParticipants(+event.currentTarget.value);
@@ -45,16 +58,17 @@ export const CreateRoom = () => {
       ) : (
         <>
           <Styled.Title>Room options</Styled.Title>
-          <Styled.MaxParticipants>
-            <Styled.RangeValue>{maxParticipants}</Styled.RangeValue>
-            <Styled.MaxParticipantsRange
-              min={rangeData?.getRangeParticipants.min}
-              max={rangeData?.getRangeParticipants.max}
-              defaultValue={rangeData?.getRangeParticipants.defaultValue}
-              onChange={onChangeRange}
+          {rangeData?.getRangeParticipants && (
+            <MaxParticipants
+              maxLimit={rangeData.getRangeParticipants.max}
+              minLimit={rangeData.getRangeParticipants.min}
+              currentValue={maxParticipants}
+              defaultValue={rangeData.getRangeParticipants.defaultValue}
+              onChangeRange={onChangeRange}
             />
-          </Styled.MaxParticipants>
+          )}
           <Button onClick={onClickCreateRoom}>Create room</Button>
+          <Button onClick={onClickBackToMenu}>Back to menu</Button>
         </>
       )}
     </Styled.CreateRoom>
