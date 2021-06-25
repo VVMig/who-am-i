@@ -9,4 +9,5 @@ export const theme: DefaultTheme = {
     black: '#000',
     lightGray: '#b0b0b0',
   },
+  borderRadius: '10px',
 };

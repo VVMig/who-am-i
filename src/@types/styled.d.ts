@@ -9,5 +9,6 @@ declare module 'styled-components' {
       black: string;
       lightGray: string;
     };
+    borderRadius: string;
   }
 }
