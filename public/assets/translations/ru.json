@@ -6,5 +6,6 @@
   "user.signUp": "Регистрация",
   "createRoom.title": "Настройки комнаты",
   "createRoom.backToMenu": "Назад к меню",
-  "participants": "Участники"
+  "participants": "Участники",
+  "joinRoom.title": "Id комнаты"
 }
