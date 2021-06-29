@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Menu = styled.div`
   height: 100%;
-  padding-top: 10vh;
 `;
 
 const TitleWrapper = styled.div`
