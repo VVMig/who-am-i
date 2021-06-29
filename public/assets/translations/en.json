@@ -1,0 +1,10 @@
+{
+  "menu.title": "Who am I",
+  "menu.joinRoom": "Join room",
+  "menu.createRoom": "Create room",
+  "user.signIn": "Sign in",
+  "user.signUp": "Sign up",
+  "createRoom.title": "Room options",
+  "createRoom.backToMenu": "Back to menu",
+  "participants": "Participants"
+}
