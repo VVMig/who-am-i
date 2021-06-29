@@ -17,7 +17,7 @@ const Title = styled.h1`
 `;
 
 const SelectMenu = styled.div`
-  padding-top: 25px;
+  padding: 25px 0 5px;
   display: flex;
   flex-direction: column;
   width: 100%;

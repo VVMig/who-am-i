@@ -4,10 +4,7 @@ export interface IParticipant {
 
 export interface CreatRoomQuery {
   createRoom: {
-    id: string;
     shareId: string;
-    participants: IParticipant[];
-    maxParticipants: string;
   };
 }
 

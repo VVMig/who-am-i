@@ -19,7 +19,7 @@ const defaultMaxParticipants = 2;
 export const CreateRoom = () => {
   const history = useHistory();
 
-  const [createRoom, { data: roomData, loading: roomLoading }] =
+  const [createRoom, { loading: roomLoading }] =
     useMutation<CreatRoomQuery>(CREATE_ROOM);
 
   const { data: rangeData, loading: rangeLoading } =
@@ -37,17 +37,21 @@ export const CreateRoom = () => {
     setMaxParticipants(+event.currentTarget.value);
   };
 
-  const onClickCreateRoom = () => {
-    createRoom({
+  const onClickCreateRoom = async () => {
+    const { data } = await createRoom({
       variables: {
         maxParticipants,
       },
     });
+
+    if (data?.createRoom) {
+      history.push(`${RoutesEnum.Game}?id=${data.createRoom.shareId}`);
+    }
   };
 
   useEffect(() => {
     if (rangeData) {
-      setMaxParticipants(Number(rangeData.getRangeParticipants.defaultValue));
+      setMaxParticipants(+rangeData.getRangeParticipants.defaultValue);
     }
   }, [rangeData]);
 
