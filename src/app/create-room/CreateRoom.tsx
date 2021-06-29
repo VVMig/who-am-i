@@ -22,8 +22,7 @@ export const CreateRoom = () => {
 
   const history = useHistory();
 
-  const [createRoom, { loading: roomLoading }] =
-    useMutation<CreatRoomQuery>(CREATE_ROOM);
+  const [createRoom] = useMutation<CreatRoomQuery>(CREATE_ROOM);
 
   const { data: rangeData, loading: rangeLoading } =
     useQuery<GetRangeParticipantsQuery>(GET_RANGE_PARTICIPANTS);
@@ -59,8 +58,8 @@ export const CreateRoom = () => {
   }, [rangeData]);
 
   return (
-    <Styled.CreateRoom isLoading={rangeLoading || roomLoading}>
-      {rangeLoading || roomLoading ? (
+    <Styled.CreateRoom isLoading={rangeLoading}>
+      {rangeLoading ? (
         <Spinner />
       ) : (
         <>
