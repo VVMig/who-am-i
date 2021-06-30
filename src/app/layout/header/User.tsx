@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 import { Dropdown } from '../../../packages';
-import { useCustomTranlation, useOutsideClick } from '../../hooks';
+import { useCustomTranslation, useOutsideClick } from '../../hooks';
 import { icons } from '../../icons';
 import { Styled } from './styled';
 
@@ -12,7 +12,7 @@ interface Props {
 
 export const User: React.FC<Props> = ({ isUserActive, onToggleUser }) => {
   const userRef = useRef<HTMLDivElement | null>(null);
-  const { t } = useCustomTranlation();
+  const { t } = useCustomTranslation();
 
   useOutsideClick(userRef, () => {
     if (isUserActive) {

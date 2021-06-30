@@ -1,2 +1,2 @@
 export * from './useOutsideClick';
-export * from './useCustomTranlation';
+export * from './useCustomTranslation';

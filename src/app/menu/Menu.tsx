@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { useCustomTranlation } from '../hooks';
+import { useCustomTranslation } from '../hooks';
 import { SelectMenu } from './SelectMenu';
 import { Styled } from './styled';
 
 export const Menu = () => {
-  const { t } = useCustomTranlation();
+  const { t } = useCustomTranslation();
 
   return (
     <Styled.Menu>

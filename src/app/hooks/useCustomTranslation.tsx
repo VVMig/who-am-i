@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Languages } from '../languages';
 
-export const useCustomTranlation = () => {
+export const useCustomTranslation = () => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (language: Languages) => {

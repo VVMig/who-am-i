@@ -4,7 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
 import { Button, Spinner } from '../../packages';
-import { useCustomTranlation } from '../hooks';
+import { useCustomTranslation } from '../hooks';
 import {
   CREATE_ROOM,
   CreatRoomQuery,
@@ -18,7 +18,7 @@ import { Styled } from './styled';
 const defaultMaxParticipants = 2;
 
 export const CreateRoom = () => {
-  const { t } = useCustomTranlation();
+  const { t } = useCustomTranslation();
 
   const history = useHistory();
 

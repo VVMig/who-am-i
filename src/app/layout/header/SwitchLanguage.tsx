@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import { Dropdown, DropdownItem } from '../../../packages';
-import { useCustomTranlation, useOutsideClick } from '../../hooks';
+import { useCustomTranslation, useOutsideClick } from '../../hooks';
 import { languages } from '../../languages';
 import { Styled } from './styled';
 
@@ -15,7 +15,7 @@ export const SwitchLanguage: React.FC<Props> = ({
   onToggleLanguage,
 }) => {
   const switchLanguageRef = useRef<HTMLDivElement | null>(null);
-  const { changeLanguage, i18n } = useCustomTranlation();
+  const { changeLanguage, i18n } = useCustomTranslation();
 
   const [translations] = useState<DropdownItem[]>(
     languages.map((language) => ({
