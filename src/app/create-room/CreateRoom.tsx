@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
+import { observer } from 'mobx-react-lite';
 import { useHistory } from 'react-router-dom';
 
 import { Button, Spinner } from '../../packages';
@@ -12,12 +13,13 @@ import {
   GET_RANGE_PARTICIPANTS,
 } from '../query';
 import { RoutesEnum } from '../RoutesEnum';
+import { store } from '../store';
 import { MaxParticipants } from './MaxParticipants';
 import { Styled } from './styled';
 
 const defaultMaxParticipants = 2;
 
-export const CreateRoom = () => {
+export const CreateRoom = observer(() => {
   const { t } = useCustomTranslation();
 
   const history = useHistory();
@@ -40,14 +42,18 @@ export const CreateRoom = () => {
   };
 
   const onClickCreateRoom = async () => {
-    const { data } = await createRoom({
-      variables: {
-        maxParticipants,
-      },
-    });
+    try {
+      const { data } = await createRoom({
+        variables: {
+          maxParticipants,
+        },
+      });
 
-    if (data?.createRoom) {
-      history.push(`${RoutesEnum.Game}?id=${data.createRoom.shareId}`);
+      if (data?.createRoom) {
+        history.push(`${RoutesEnum.Game}?id=${data.createRoom.shareId}`);
+      }
+    } catch (error) {
+      store.error.setError(error);
     }
   };
 
@@ -81,4 +87,4 @@ export const CreateRoom = () => {
       )}
     </Styled.CreateRoom>
   );
-};
+});
