@@ -1,38 +1,17 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { pageAppear, pageDisappear } from '../../packages';
-import { ContainerProps } from './interfaces';
+import { pageAppear } from '../../packages';
 
 export const pageAnimationDuration = 300;
 
-const Container = styled.div<ContainerProps>`
-  display: grid;
-  place-items: center;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
   height: 100vh;
   color: ${({ theme }) => theme.colors.black};
 
   &.page-enter-active {
-    ${({ isPush }) =>
-      isPush
-        ? css`
-            animation: ${pageAppear} ${pageAnimationDuration}ms linear both;
-          `
-        : css`
-            animation: ${pageDisappear} ${pageAnimationDuration}ms linear
-              reverse both;
-          `}
-  }
-
-  &.page-exit-active {
-    ${({ isPush }) =>
-      isPush
-        ? css`
-            animation: ${pageAppear} ${pageAnimationDuration}ms linear reverse
-              both;
-          `
-        : css`
-            animation: ${pageDisappear} ${pageAnimationDuration}ms linear both;
-          `}
+    animation: ${pageAppear} ${pageAnimationDuration}ms linear both;
   }
 `;
 

@@ -1,60 +1,82 @@
 import React, { useEffect, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 
 import { Button, Spinner } from '../../packages';
+import { useCustomTranslation } from '../hooks';
 import {
   CREATE_ROOM,
   CreatRoomQuery,
   GetRangeParticipantsQuery,
   GET_RANGE_PARTICIPANTS,
 } from '../query';
+import { RoutesEnum } from '../RoutesEnum';
+import { MaxParticipants } from './MaxParticipants';
 import { Styled } from './styled';
 
+const defaultMaxParticipants = 2;
+
 export const CreateRoom = () => {
-  const [createRoom, { data: roomData, loading: roomLoading }] =
-    useMutation<CreatRoomQuery>(CREATE_ROOM);
+  const { t } = useCustomTranslation();
+
+  const history = useHistory();
+
+  const [createRoom] = useMutation<CreatRoomQuery>(CREATE_ROOM);
 
   const { data: rangeData, loading: rangeLoading } =
     useQuery<GetRangeParticipantsQuery>(GET_RANGE_PARTICIPANTS);
 
-  const [maxParticipants, setMaxParticipants] = useState<null | number>(null);
+  const [maxParticipants, setMaxParticipants] = useState<number>(
+    defaultMaxParticipants
+  );
+
+  const onClickBackToMenu = () => {
+    history.push(RoutesEnum.Home);
+  };
 
   const onChangeRange: React.FormEventHandler<HTMLInputElement> = (event) => {
     setMaxParticipants(+event.currentTarget.value);
   };
 
-  const onClickCreateRoom = () => {
-    createRoom({
+  const onClickCreateRoom = async () => {
+    const { data } = await createRoom({
       variables: {
         maxParticipants,
       },
     });
+
+    if (data?.createRoom) {
+      history.push(`${RoutesEnum.Game}?id=${data.createRoom.shareId}`);
+    }
   };
 
   useEffect(() => {
     if (rangeData) {
-      setMaxParticipants(Number(rangeData.getRangeParticipants.defaultValue));
+      setMaxParticipants(+rangeData.getRangeParticipants.defaultValue);
     }
   }, [rangeData]);
 
   return (
-    <Styled.CreateRoom isLoading={rangeLoading || roomLoading}>
-      {rangeLoading || roomLoading ? (
+    <Styled.CreateRoom isLoading={rangeLoading}>
+      {rangeLoading ? (
         <Spinner />
       ) : (
         <>
-          <Styled.Title>Room options</Styled.Title>
-          <Styled.MaxParticipants>
-            <Styled.RangeValue>{maxParticipants}</Styled.RangeValue>
-            <Styled.MaxParticipantsRange
-              min={rangeData?.getRangeParticipants.min}
-              max={rangeData?.getRangeParticipants.max}
-              defaultValue={rangeData?.getRangeParticipants.defaultValue}
-              onChange={onChangeRange}
+          <Styled.Title>{t('createRoom.title')}</Styled.Title>
+          {rangeData?.getRangeParticipants && (
+            <MaxParticipants
+              maxLimit={rangeData.getRangeParticipants.max}
+              minLimit={rangeData.getRangeParticipants.min}
+              currentValue={maxParticipants}
+              defaultValue={rangeData.getRangeParticipants.defaultValue}
+              onChangeRange={onChangeRange}
             />
-          </Styled.MaxParticipants>
-          <Button onClick={onClickCreateRoom}>Create room</Button>
+          )}
+          <Button onClick={onClickCreateRoom}>{t('menu.createRoom')}</Button>
+          <Button onClick={onClickBackToMenu}>
+            {t('createRoom.backToMenu')}
+          </Button>
         </>
       )}
     </Styled.CreateRoom>

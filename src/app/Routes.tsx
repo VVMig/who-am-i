@@ -1,4 +1,5 @@
 import { CreateRoom } from './create-room/CreateRoom';
+import { JoinRoom } from './join-room';
 import { Menu } from './menu';
 import { RoutesEnum } from './RoutesEnum';
 
@@ -17,5 +18,9 @@ export const routes: IRoute[] = [
   {
     path: RoutesEnum.CreateRoom,
     component: <CreateRoom />,
+  },
+  {
+    path: RoutesEnum.JoinRoom,
+    component: <JoinRoom />,
   },
 ];
