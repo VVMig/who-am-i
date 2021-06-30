@@ -20,35 +20,12 @@ export const rotate = keyframes`
 
 export const pageAppear = keyframes`
   0% {
-    position: absolute;
-    width: 100%;
-    transform: translate(100%, 0);
-  }
-  50% {
-    transform: translate(60%, 0);
+    transform: scale(0);
+    opacity: 0;
   }
   100% {
-    position: absolute;
-    width: 100%;
-
-    transform: translate(0, 0);
-
-  }
-`;
-
-export const pageDisappear = keyframes`
-  0% {
-    position: absolute;
-    width: 100%;
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-40%, 0);
-  }
-  100% {
-    position: absolute;
-    width: 100%;
-    transform: translate(-100%, 0);
+    transform: scale(1);
+    opacity: 1;
   }
 `;
 

@@ -13,8 +13,8 @@ export interface CreatRoomQuery {
 
 export interface GetRangeParticipantsQuery {
   getRangeParticipants: {
-    min: string;
-    max: string;
-    defaultValue: string;
+    min: number;
+    max: number;
+    defaultValue: number;
   };
 }
