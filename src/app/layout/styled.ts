@@ -5,8 +5,8 @@ import { pageAppear } from '../../packages';
 export const pageAnimationDuration = 300;
 
 const Container = styled.div`
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
   height: 100vh;
   color: ${({ theme }) => theme.colors.black};
 

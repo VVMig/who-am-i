@@ -1,0 +1,11 @@
+{
+  "menu.title": "Кто я",
+  "menu.joinRoom": "Присоединиться к комнате",
+  "menu.createRoom": "Создать комнату",
+  "user.signIn": "Войти",
+  "user.signUp": "Регистрация",
+  "createRoom.title": "Настройки комнаты",
+  "createRoom.backToMenu": "Назад к меню",
+  "participants": "Участники",
+  "joinRoom.title": "Id комнаты"
+}

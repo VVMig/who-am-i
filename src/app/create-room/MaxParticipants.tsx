@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { fillProcent } from '../../utils';
+import { useCustomTranslation } from '../hooks';
 import { Styled } from './styled';
 
 interface Props {
@@ -18,10 +19,12 @@ export const MaxParticipants: React.FC<Props> = ({
   defaultValue,
   onChangeRange,
 }) => {
+  const { t } = useCustomTranslation();
+
   return (
     <Styled.MaxParticipants>
       <Styled.MaxParticipantsTitle>
-        Participants: {currentValue}
+        {t('participants')}: {currentValue}
       </Styled.MaxParticipantsTitle>
       <Styled.MaxParticipantsRange
         min={minLimit}
@@ -31,7 +34,7 @@ export const MaxParticipants: React.FC<Props> = ({
       />
       <Styled.RangeValueContainer>
         <Styled.RangeValue
-          leftProcent={fillProcent(maxLimit, minLimit, currentValue)}
+          leftPercentage={fillProcent(maxLimit, minLimit, currentValue)}
         >
           <h4>
             {currentValue}

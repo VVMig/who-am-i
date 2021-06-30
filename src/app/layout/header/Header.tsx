@@ -8,7 +8,7 @@ export const Header = () => {
   const [isUserActive, setIsUserActive] = useState(false);
   const [isLangActive, setIsLangActive] = useState(false);
 
-  const onToggleLang = () => {
+  const onToggleLanguage = () => {
     setIsUserActive(false);
     setIsLangActive(!isLangActive);
   };
@@ -22,7 +22,7 @@ export const Header = () => {
     <Styled.Header>
       <SwitchLanguage
         isLanguageActive={isLangActive}
-        onToggleLang={onToggleLang}
+        onToggleLanguage={onToggleLanguage}
       />
 
       <User isUserActive={isUserActive} onToggleUser={onToggleUser} />

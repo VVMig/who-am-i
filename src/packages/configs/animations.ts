@@ -29,15 +29,22 @@ export const pageAppear = keyframes`
   }
 `;
 
-export const appearSide = keyframes`
+export const appearStorm = keyframes`
   0% {
-    overflow: hidden;
-    width: 0px;
+    transform: translate3d(0, 0, 0) translateZ(0);
     opacity: 0;
   }
+  25% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
   100% {
-    overflow: hidden;
-    width: 100px;
+    transform: translate3d(0, 0, 0) translateZ(0);
     opacity: 1;
   }
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Menu = styled.div`
   height: 100%;
-  padding-top: 10vh;
 `;
 
 const TitleWrapper = styled.div`
@@ -17,7 +16,7 @@ const Title = styled.h1`
 `;
 
 const SelectMenu = styled.div`
-  padding-top: 25px;
+  padding: 25px 0 5px;
   display: flex;
   flex-direction: column;
   width: 100%;
