@@ -14,10 +14,20 @@ export interface JoinRoomQuery {
   };
 }
 
+export interface ReconnectRoomQuery {
+  reconnectRoom: {
+    shareId: string;
+  };
+}
+
 export interface GetRangeParticipantsQuery {
   getRangeParticipants: {
     min: number;
     max: number;
     defaultValue: number;
   };
+}
+
+export interface IsRoomExistQuery {
+  isRoomExist: boolean;
 }
