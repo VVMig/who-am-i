@@ -3,5 +3,5 @@ export interface StyledCreateRoomProps {
 }
 
 export interface StyledRangeValueProps {
-  leftProcent: number;
+  leftPercentage: number;
 }

@@ -31,7 +31,7 @@ export const MaxParticipants: React.FC<Props> = ({
       />
       <Styled.RangeValueContainer>
         <Styled.RangeValue
-          leftProcent={fillProcent(maxLimit, minLimit, currentValue)}
+          leftPercentage={fillProcent(maxLimit, minLimit, currentValue)}
         >
           <h4>
             {currentValue}

@@ -60,7 +60,7 @@ const RangeValue = styled.div<StyledRangeValueProps>`
     justify-content: center;
     position: absolute;
     top: 0;
-    left: ${({ leftProcent }) => `${leftProcent}%`};
+    left: ${({ leftPercentage }) => `${leftPercentage}%`};
     width: 30px;
     height: 30px;
     color: #fff !important;
