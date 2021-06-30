@@ -6,5 +6,6 @@
   "user.signUp": "Sign up",
   "createRoom.title": "Room options",
   "createRoom.backToMenu": "Back to menu",
-  "participants": "Participants"
+  "participants": "Participants",
+  "joinRoom.title": "Room id"
 }

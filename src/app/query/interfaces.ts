@@ -8,6 +8,12 @@ export interface CreatRoomQuery {
   };
 }
 
+export interface JoinRoomQuery {
+  joinRoom: {
+    shareId: string;
+  };
+}
+
 export interface GetRangeParticipantsQuery {
   getRangeParticipants: {
     min: number;

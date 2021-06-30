@@ -14,7 +14,9 @@ export const SelectMenu = () => {
 
   return (
     <Styled.SelectMenu>
-      <Button>{t('menu.joinRoom')}</Button>
+      <Button onClick={() => history.push(RoutesEnum.JoinRoom)}>
+        {t('menu.joinRoom')}
+      </Button>
       <Button onClick={() => history.push(RoutesEnum.CreateRoom)}>
         {t('menu.createRoom')}
       </Button>

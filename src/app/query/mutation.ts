@@ -7,3 +7,11 @@ export const CREATE_ROOM = gql`
     }
   }
 `;
+
+export const JOIN_ROOM = gql`
+  mutation JoinRoom($shareId: String!) {
+    joinRoom(shareId: $shareId) {
+      shareId
+    }
+  }
+`;

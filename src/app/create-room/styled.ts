@@ -6,6 +6,7 @@ const CreateRoom = styled.div<StyledCreateRoomProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: min-content;
 
   ${({ isLoading }) =>
     isLoading &&
