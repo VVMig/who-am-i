@@ -9,8 +9,24 @@ export const CREATE_ROOM = gql`
 `;
 
 export const JOIN_ROOM = gql`
-  mutation JoinRoom($shareId: String!) {
+  mutation JoinRoom($shareId: String) {
     joinRoom(shareId: $shareId) {
+      shareId
+    }
+  }
+`;
+
+export const LEAVE_ROOM = gql`
+  mutation {
+    leaveRoom {
+      shareId
+    }
+  }
+`;
+
+export const RECONNECT_ROOM = gql`
+  mutation {
+    reconnectRoom {
       shareId
     }
   }
