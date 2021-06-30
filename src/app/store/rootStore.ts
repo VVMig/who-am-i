@@ -1,3 +1,13 @@
 import { types } from 'mobx-state-tree';
 
-export const RootStore = types.model({});
+import { Error } from './error';
+
+export const RootStore = types
+  .model({
+    error: Error,
+  })
+  .views((self) => ({
+    get errorMessage() {
+      return self.error.message;
+    },
+  }));
