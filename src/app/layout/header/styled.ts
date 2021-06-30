@@ -15,7 +15,7 @@ const Header = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  padding: 5px;
+  padding: 5px 5px 10vh;
 `;
 
 const UserWrapper = styled.div`

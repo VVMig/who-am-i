@@ -15,6 +15,8 @@ import { GlobalStyle } from './GlobalStyle';
 import { theme } from './theme';
 import { serverUri } from './uri';
 
+import './i18n';
+
 const link = createHttpLink({
   uri: serverUri,
   credentials: 'include',

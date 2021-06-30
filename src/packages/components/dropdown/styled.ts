@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { appearSide } from '../../configs';
+import { appearStorm } from '../../configs';
 
 const Dropdown = styled.div`
   position: absolute;
@@ -14,7 +14,7 @@ const Dropdown = styled.div`
   overflow: auto;
 
   &.entering {
-    animation: ${appearSide} 200ms ease-out both;
+    animation: ${appearStorm} 200ms ease-out both;
   }
 
   &.entered {
@@ -23,7 +23,7 @@ const Dropdown = styled.div`
   }
 
   &.exiting {
-    animation: ${appearSide} 200ms ease-out reverse both;
+    animation: ${appearStorm} 200ms ease-out reverse both;
   }
 
   * + * {

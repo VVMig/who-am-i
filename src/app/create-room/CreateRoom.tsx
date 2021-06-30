@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
 import { Button, Spinner } from '../../packages';
+import { useCustomTranslation } from '../hooks';
 import {
   CREATE_ROOM,
   CreatRoomQuery,
@@ -17,10 +18,11 @@ import { Styled } from './styled';
 const defaultMaxParticipants = 2;
 
 export const CreateRoom = () => {
+  const { t } = useCustomTranslation();
+
   const history = useHistory();
 
-  const [createRoom, { loading: roomLoading }] =
-    useMutation<CreatRoomQuery>(CREATE_ROOM);
+  const [createRoom] = useMutation<CreatRoomQuery>(CREATE_ROOM);
 
   const { data: rangeData, loading: rangeLoading } =
     useQuery<GetRangeParticipantsQuery>(GET_RANGE_PARTICIPANTS);
@@ -56,12 +58,12 @@ export const CreateRoom = () => {
   }, [rangeData]);
 
   return (
-    <Styled.CreateRoom isLoading={rangeLoading || roomLoading}>
-      {rangeLoading || roomLoading ? (
+    <Styled.CreateRoom isLoading={rangeLoading}>
+      {rangeLoading ? (
         <Spinner />
       ) : (
         <>
-          <Styled.Title>Room options</Styled.Title>
+          <Styled.Title>{t('createRoom.title')}</Styled.Title>
           {rangeData?.getRangeParticipants && (
             <MaxParticipants
               maxLimit={rangeData.getRangeParticipants.max}
@@ -71,8 +73,10 @@ export const CreateRoom = () => {
               onChangeRange={onChangeRange}
             />
           )}
-          <Button onClick={onClickCreateRoom}>Create room</Button>
-          <Button onClick={onClickBackToMenu}>Back to menu</Button>
+          <Button onClick={onClickCreateRoom}>{t('menu.createRoom')}</Button>
+          <Button onClick={onClickBackToMenu}>
+            {t('createRoom.backToMenu')}
+          </Button>
         </>
       )}
     </Styled.CreateRoom>
