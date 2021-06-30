@@ -8,6 +8,7 @@ export const theme: DefaultTheme = {
     lightBlue: '#0062ff',
     black: '#000',
     lightGray: '#b0b0b0',
+    red: '#ff364a',
   },
   borderRadius: '10px',
 };

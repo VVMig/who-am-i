@@ -93,3 +93,12 @@ export const ldsEllipsis2 = keyframes`
     transform: translate(24px, 0);
   }
 `;
+
+export const fade = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1
+  }
+`;

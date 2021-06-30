@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
+import { observer } from 'mobx-react-lite';
 import { useHistory } from 'react-router-dom';
 
 import { Button } from '../../packages';
-import { useCustomTranlation } from '../hooks';
+import { useCustomTranslation } from '../hooks';
 import { JoinRoomQuery, JOIN_ROOM } from '../query';
 import { RoutesEnum } from '../RoutesEnum';
+import { store } from '../store';
 import { Styled } from './styled';
 
-export const JoinRoom = () => {
-  const { t } = useCustomTranlation();
+export const JoinRoom = observer(() => {
+  const { t } = useCustomTranslation();
 
   const [shareId, setShareId] = useState('');
 
@@ -38,7 +40,7 @@ export const JoinRoom = () => {
         history.push(`${RoutesEnum.Game}/?id=${data.joinRoom.shareId}`);
       }
     } catch (error) {
-      console.error(error.message);
+      store.error.setError(error.message);
     }
   };
 
@@ -55,4 +57,4 @@ export const JoinRoom = () => {
       <Button onClick={onClickBackToMenu}>{t('createRoom.backToMenu')}</Button>
     </Styled.JoinRoom>
   );
-};
+});
