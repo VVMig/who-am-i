@@ -55,7 +55,11 @@ export const App = () => {
       store.error.setError(error.message);
     }
 
-    if (data?.isRoomExist && !loading) {
+    if (
+      data?.isRoomExist &&
+      !loading &&
+      history.location.pathname !== RoutesEnum.Game
+    ) {
       setIsModalShow(true);
     }
   }, [data, error]);
