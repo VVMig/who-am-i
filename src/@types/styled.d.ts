@@ -9,6 +9,8 @@ declare module 'styled-components' {
       black: string;
       lightGray: string;
       red: string;
+      opacityGray: (opacity: number) => string;
+      success: string;
     };
     borderRadius: string;
   }
