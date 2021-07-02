@@ -30,24 +30,19 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <>
-      <Portal>
-        <Styled.ModalWrapper
-          onClick={closeModal}
-          onMouseOver={toggleButtonLight}
-        >
-          <Styled.CloseButton isToggleColorized={isButtonHighlighted}>
-            {closeIcon || <>&times;</>}
-          </Styled.CloseButton>
-          <Transition in={true} timeout={defaultDelay}>
-            {(state) => (
-              <Styled.Modal className={`${className} ${state}`} ref={modalRef}>
-                {children}
-              </Styled.Modal>
-            )}
-          </Transition>
-        </Styled.ModalWrapper>
-      </Portal>
-    </>
+    <Portal>
+      <Styled.ModalWrapper onClick={closeModal} onMouseOver={toggleButtonLight}>
+        <Styled.CloseButton isToggleColorized={isButtonHighlighted}>
+          {closeIcon || <>&times;</>}
+        </Styled.CloseButton>
+        <Transition in={true} timeout={defaultDelay}>
+          {(state) => (
+            <Styled.Modal className={`${className} ${state}`} ref={modalRef}>
+              {children}
+            </Styled.Modal>
+          )}
+        </Transition>
+      </Styled.ModalWrapper>
+    </Portal>
   );
 };
