@@ -1,3 +1,4 @@
 export const zIndex = {
-  alert: 1000,
+  alert: 3000,
+  modal: 2000,
 };
