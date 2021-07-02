@@ -7,5 +7,6 @@
   "createRoom.title": "Room options",
   "createRoom.backToMenu": "Back to menu",
   "participants": "Participants",
-  "joinRoom.title": "Room id"
+  "joinRoom.title": "Room id",
+  "app.reconnectConfirm": "You have an unfinished game. Do you want to reconnect?"
 }

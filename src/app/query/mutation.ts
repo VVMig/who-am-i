@@ -18,9 +18,7 @@ export const JOIN_ROOM = gql`
 
 export const LEAVE_ROOM = gql`
   mutation {
-    leaveRoom {
-      shareId
-    }
+    leaveRoom
   }
 `;
 

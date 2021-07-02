@@ -7,5 +7,7 @@
   "createRoom.title": "Настройки комнаты",
   "createRoom.backToMenu": "Назад к меню",
   "participants": "Участники",
-  "joinRoom.title": "Id комнаты"
+  "joinRoom.title": "Id комнаты",
+  "app.reconnectConfirm": "У вас есть незаконченная игра. Желаете переподключиться?"
+
 }
