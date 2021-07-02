@@ -8,7 +8,7 @@ export const defaultDelay = 150;
 const backgroundOpacity = 0.5;
 
 interface CloseButtonProps {
-  colorToggle: boolean;
+  isToggleColorized: boolean;
 }
 
 const CloseButton = styled.span<CloseButtonProps>`
@@ -21,8 +21,8 @@ const CloseButton = styled.span<CloseButtonProps>`
   color: ${({ theme }) => theme.colors.white};
   opacity: 0.5;
 
-  ${({ colorToggle }) =>
-    colorToggle &&
+  ${({ isToggleColorized }) =>
+    isToggleColorized &&
     css`
       opacity: 1;
     `}

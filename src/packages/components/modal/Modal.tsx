@@ -13,7 +13,7 @@ export const Modal: React.FC<ModalProps> = ({
   handleModalClose,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [buttonLight, setButtonLight] = useState(false);
+  const [isButtonHighlighted, setIsButtonHighlighted] = useState(false);
 
   const isModalTarget = (event: React.MouseEvent) =>
     event.target === modalRef.current ||
@@ -25,8 +25,8 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   const toggleButtonLight: React.MouseEventHandler = (event) => {
-    if (!isModalTarget(event)) setButtonLight(true);
-    else setButtonLight(false);
+    if (!isModalTarget(event)) setIsButtonHighlighted(true);
+    else setIsButtonHighlighted(false);
   };
 
   return (
@@ -36,7 +36,7 @@ export const Modal: React.FC<ModalProps> = ({
           onClick={closeModal}
           onMouseOver={toggleButtonLight}
         >
-          <Styled.CloseButton colorToggle={buttonLight}>
+          <Styled.CloseButton isToggleColorized={isButtonHighlighted}>
             {closeIcon || <>&times;</>}
           </Styled.CloseButton>
           <Transition in={true} timeout={defaultDelay}>

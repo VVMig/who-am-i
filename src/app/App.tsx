@@ -31,9 +31,10 @@ export const App = () => {
   const leave = async () => {
     try {
       await leaveRoom();
-      setIsModalShow(false);
     } catch (error) {
       store.error.setError(error.message);
+    } finally {
+      setIsModalShow(false);
     }
   };
 
@@ -41,12 +42,13 @@ export const App = () => {
     try {
       const { data } = await reconnectRoom();
 
-      setIsModalShow(false);
       if (data?.reconnectRoom) {
         history.push(`${RoutesEnum.Game}?id=${data.reconnectRoom.shareId}`);
       }
     } catch (error) {
       store.error.setError(error.message);
+    } finally {
+      setIsModalShow(false);
     }
   };
 
