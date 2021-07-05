@@ -20,10 +20,7 @@ export const SwitchLanguage: React.FC<Props> = ({
   const [translations] = useState<DropdownItem[]>(
     languages.map((language) => ({
       text: language,
-      onClickHandler: () => {
-        onToggleLanguage();
-        changeLanguage(language);
-      },
+      onClickHandler: () => changeLanguage(language),
     }))
   );
 
@@ -38,7 +35,11 @@ export const SwitchLanguage: React.FC<Props> = ({
       <Styled.SwitchLang isActive={isLanguageActive} onClick={onToggleLanguage}>
         {i18n.language}
       </Styled.SwitchLang>
-      <Dropdown isShow={isLanguageActive} dropdownItems={translations} />
+      <Dropdown
+        isShow={isLanguageActive}
+        dropdownItems={translations}
+        onCloseDropdown={onToggleLanguage}
+      />
     </Styled.SwitchLangWrapper>
   );
 };

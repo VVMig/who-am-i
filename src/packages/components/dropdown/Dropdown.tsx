@@ -8,9 +8,22 @@ import { Styled } from './styled';
 interface Props {
   isShow: boolean;
   dropdownItems: DropdownItem[];
+  onCloseDropdown: () => void;
 }
 
-export const Dropdown: React.FC<Props> = ({ isShow, dropdownItems }) => {
+export const Dropdown: React.FC<Props> = ({
+  isShow,
+  dropdownItems,
+  onCloseDropdown,
+}) => {
+  const onClickDropdownItem = (onClickItem?: () => void) => {
+    if (onClickItem) {
+      onClickItem();
+    }
+
+    onCloseDropdown();
+  };
+
   return (
     <Transition in={isShow} timeout={200} unmountOnExit>
       {(state) => (
@@ -18,7 +31,7 @@ export const Dropdown: React.FC<Props> = ({ isShow, dropdownItems }) => {
           {dropdownItems.map((item, index) => (
             <Styled.DropdownItem
               key={`${item.text}-${index}`}
-              onClick={item.onClickHandler}
+              onClick={() => onClickDropdownItem(item.onClickHandler)}
             >
               {item.text}
             </Styled.DropdownItem>
