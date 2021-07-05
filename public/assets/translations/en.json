@@ -8,5 +8,6 @@
   "createRoom.backToMenu": "Back to menu",
   "participants": "Participants",
   "joinRoom.title": "Room id",
-  "app.reconnectConfirm": "You have an unfinished game. Do you want to reconnect?"
+  "app.reconnectConfirm": "You have an unfinished game. Do you want to reconnect?",
+  "game.leaveRoom": "Leave room"
 }
