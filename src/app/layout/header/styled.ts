@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { ActiveStyledProps } from './interfaces';
+import { clickAnimation } from '../../../packages';
+import { ActiveStyledProps, ClipboardStyledProps } from './interfaces';
 
 const activeStateStyles = css`
   transition: 100ms ease-out;
@@ -53,10 +54,37 @@ const SwitchLang = styled.div<ActiveStyledProps>`
   ${({ isActive }) => isActive && activeStateStyles}
 `;
 
+const RoomShareId = styled.div`
+  padding: 5px;
+`;
+
+const RoomShareIdWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid ${({ theme }) => theme.colors.black};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: 5px;
+`;
+
+const Clipboard = styled.span<ClipboardStyledProps>`
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 8px;
+
+  ${({ isCopied }) =>
+    isCopied &&
+    css`
+      animation: ${clickAnimation} 0.2s linear both;
+    `}
+`;
+
 export const Styled = {
   Header,
   User,
   SwitchLang,
   UserWrapper,
   SwitchLangWrapper,
+  RoomShareId,
+  RoomShareIdWrapper,
+  Clipboard,
 };

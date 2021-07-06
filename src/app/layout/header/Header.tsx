@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { useHistory } from 'react-router-dom';
+
+import { RoutesEnum } from '../../RoutesEnum';
+import { ShareId } from './ShareId';
 import { Styled } from './styled';
 import { SwitchLanguage } from './SwitchLanguage';
 import { User } from './User';
 
 export const Header = () => {
+  const history = useHistory();
   const [isUserActive, setIsUserActive] = useState(false);
   const [isLangActive, setIsLangActive] = useState(false);
+  const [isShowShareId, setIsShowShareId] = useState(false);
 
   const onToggleLanguage = () => {
     setIsUserActive(false);
@@ -18,8 +24,15 @@ export const Header = () => {
     setIsUserActive(!isUserActive);
   };
 
+  useEffect(() => {
+    return history.listen((location) => {
+      setIsShowShareId(location.pathname === RoutesEnum.Game);
+    });
+  }, [history]);
+
   return (
     <Styled.Header>
+      {isShowShareId && <ShareId />}
       <SwitchLanguage
         isLanguageActive={isLangActive}
         onToggleLanguage={onToggleLanguage}
