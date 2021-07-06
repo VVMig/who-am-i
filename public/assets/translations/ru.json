@@ -9,6 +9,10 @@
   "participants": "Участники",
   "joinRoom.title": "Id комнаты",
   "app.reconnectConfirm": "У вас есть незаконченная игра. Желаете переподключиться?",
-  "game.leaveRoom": "Покинуть комнату"
-
+  "game.leaveRoom": "Покинуть комнату",
+  "game.waitOtherPlayers": "Ожидание других игроков",
+  "game.waiting": "Ожидание",
+  "game.startGame": "Начать игру",
+  "game.kickPlayer": "Выгнать",
+  "game.admin": "Администратор"
 }

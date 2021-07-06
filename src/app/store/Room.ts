@@ -1,14 +1,11 @@
 import { types } from 'mobx-state-tree';
 
-export const Participant = types.model('Participant', {
-  id: types.string,
-  guessName: types.maybeNull(types.string),
-  displayName: types.string,
-  isAdmin: types.boolean,
-});
+import { GameUser } from './GameUser';
+
+const defaultMaxParticipants = 0;
 
 export const Room = types.model('Room', {
-  maxParticipants: types.maybe(types.number),
+  maxParticipants: types.optional(types.number, defaultMaxParticipants),
   shareId: types.optional(types.string, ''),
-  participants: types.optional(types.array(Participant), []),
+  participants: types.optional(types.array(GameUser), []),
 });

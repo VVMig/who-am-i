@@ -9,5 +9,10 @@
   "participants": "Participants",
   "joinRoom.title": "Room id",
   "app.reconnectConfirm": "You have an unfinished game. Do you want to reconnect?",
-  "game.leaveRoom": "Leave room"
+  "game.leaveRoom": "Leave room",
+  "game.waitOtherPlayers": "Waiting for other players",
+  "game.waiting": "Waiting",
+  "game.startGame": "Start game",
+  "game.kickPlayer": "Kick",
+  "game.admin": "Admin"
 }
