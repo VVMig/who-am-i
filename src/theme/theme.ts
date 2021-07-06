@@ -9,8 +9,9 @@ export const theme: DefaultTheme = {
     black: '#000',
     lightGray: '#b0b0b0',
     red: '#ff364a',
-    opacityGray: (opacity: number) => `rgba(79, 79, 79, ${opacity})`,
+    opacityGray: (opacity = 1) => `rgba(79, 79, 79, ${opacity})`,
     success: '#3bf783',
+    orange: '#f7960f',
   },
   borderRadius: '10px',
 };
