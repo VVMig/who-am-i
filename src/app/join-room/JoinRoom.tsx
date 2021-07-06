@@ -37,7 +37,7 @@ export const JoinRoom = observer(() => {
       });
 
       if (data?.joinRoom) {
-        history.push(`${RoutesEnum.Game}/?id=${data.joinRoom.shareId}`);
+        history.push(`${RoutesEnum.Game}?id=${data.joinRoom.shareId}`);
       }
     } catch (error) {
       store.error.setError(error.message);
