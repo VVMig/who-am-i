@@ -1,5 +1,8 @@
 export interface IParticipant {
   id: string;
+  displayName: string;
+  guessName: string;
+  isAdmin: boolean;
 }
 
 export interface CreatRoomQuery {
@@ -11,6 +14,14 @@ export interface CreatRoomQuery {
 export interface JoinRoomQuery {
   joinRoom: {
     shareId: string;
+  };
+}
+
+export interface GetRoomQuery {
+  getRoom: {
+    shareId: string;
+    maxParticipants: number;
+    participants: IParticipant[];
   };
 }
 

@@ -3,10 +3,14 @@ import { gql } from '@apollo/client';
 export const NEW_GAMEUSER = gql`
   subscription {
     newGameUser {
-      id
-      room {
+      shareId
+      participants {
         id
+        displayName
+        guessName
+        isAdmin
       }
+      maxParticipants
     }
   }
 `;

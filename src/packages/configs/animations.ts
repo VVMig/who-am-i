@@ -49,6 +49,23 @@ export const appearStorm = keyframes`
   }
 `;
 
+export const clickAnimation = keyframes`
+  0%{
+      transform: scale(1);
+  }
+  50%{
+      transform: scale(0.8);
+      color: #000;
+  }
+  80%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+    color: #00f719;
+  }
+`;
+
 export const storm = keyframes`
   0% {
     transform: translate3d(0, 0, 0) translateZ(0);
