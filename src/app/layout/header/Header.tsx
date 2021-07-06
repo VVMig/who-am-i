@@ -25,6 +25,8 @@ export const Header = () => {
   };
 
   useEffect(() => {
+    setIsShowShareId(location.pathname === RoutesEnum.Game);
+
     return history.listen((location) => {
       setIsShowShareId(location.pathname === RoutesEnum.Game);
     });
