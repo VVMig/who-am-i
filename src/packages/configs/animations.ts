@@ -119,3 +119,15 @@ export const fade = keyframes`
     opacity: 1
   }
 `;
+
+export const skBouncedelay = keyframes`
+  0%, 
+  80%, 
+  100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+`;
