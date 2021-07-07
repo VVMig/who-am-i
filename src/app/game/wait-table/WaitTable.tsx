@@ -41,7 +41,7 @@ export const WaitTable = observer(() => {
         <Header />
         <Styled.Body>{playerCells}</Styled.Body>
         <Styled.Footer>
-          {store.room.participants.length !== store.room.maxParticipants && (
+          {store.room.participants.length === store.room.maxParticipants && (
             <Styled.StartButton>{t('game.startGame')}</Styled.StartButton>
           )}
         </Styled.Footer>

@@ -5,6 +5,12 @@ export interface IParticipant {
   isAdmin: boolean;
 }
 
+export interface IRoom {
+  maxParticipants: number;
+  participants: IParticipant[];
+  shareId: string;
+}
+
 export interface CreatRoomQuery {
   createRoom: {
     shareId: string;
@@ -17,12 +23,12 @@ export interface JoinRoomQuery {
   };
 }
 
+export interface GameUserUpdateSubscription {
+  gameUserUpdate: IRoom;
+}
+
 export interface GetRoomQuery {
-  getRoom: {
-    shareId: string;
-    maxParticipants: number;
-    participants: IParticipant[];
-  };
+  getRoom: IRoom;
 }
 
 export interface ReconnectRoomQuery {

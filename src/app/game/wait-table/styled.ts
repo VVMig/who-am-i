@@ -21,7 +21,7 @@ const WaitTable = styled.div`
 
 const Header = styled.div`
   display: flex;
-  padding-top: 5px;
+  padding-top: 10px;
   width: 100%;
   justify-content: center;
 `;
