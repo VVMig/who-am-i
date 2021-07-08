@@ -29,7 +29,7 @@ export const useGameUserUpdate = () => {
     },
   });
 
-  const initalQuery = async () => {
+  const initialQuery = async () => {
     try {
       const { data } = await refetch();
 
@@ -46,7 +46,7 @@ export const useGameUserUpdate = () => {
     useSubscription<IKickedGameUser>(GAMEUSER_KICKED);
 
   useEffect(() => {
-    initalQuery();
+    initialQuery();
   }, []);
 
   useEffect(() => {
