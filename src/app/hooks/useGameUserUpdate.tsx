@@ -41,9 +41,17 @@ export const useGameUserUpdate = () => {
   };
 
   const { data: updatedRoom, error: updatedError } =
-    useSubscription<GameUserUpdateSubscription>(GAMEUSER_UPDATE);
+    useSubscription<GameUserUpdateSubscription>(GAMEUSER_UPDATE, {
+      variables: {
+        shareId,
+      },
+    });
   const { data: kickedUser, error: kickedError } =
-    useSubscription<IKickedGameUser>(GAMEUSER_KICKED);
+    useSubscription<IKickedGameUser>(GAMEUSER_KICKED, {
+      variables: {
+        id: cookies[CookiesEnum.GameAuth].gameUserId,
+      },
+    });
 
   useEffect(() => {
     initialQuery();
