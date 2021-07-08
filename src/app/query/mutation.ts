@@ -29,3 +29,11 @@ export const RECONNECT_ROOM = gql`
     }
   }
 `;
+
+export const KICK_PLAYER = gql`
+  mutation KickPlayer($id: String!) {
+    kickPlayer(id: $id) {
+      shareId
+    }
+  }
+`;
