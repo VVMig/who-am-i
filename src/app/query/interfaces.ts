@@ -48,3 +48,7 @@ export interface GetRangeParticipantsQuery {
 export interface IsRoomExistQuery {
   isRoomExist: boolean;
 }
+
+export interface IKickedGameUser {
+  kickedGameUser: string;
+}

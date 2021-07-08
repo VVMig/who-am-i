@@ -93,6 +93,7 @@ const KickPlayer = styled.div`
   border-radius: 5px;
   padding: 5px;
   user-select: none;
+  cursor: pointer;
 
   &:active {
     transition: 0.2s linear;

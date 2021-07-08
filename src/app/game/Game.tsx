@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { observer } from 'mobx-react-lite';
 
@@ -8,11 +8,7 @@ import { Styled } from './styled';
 import { WaitTable } from './wait-table/WaitTable';
 
 export const Game = observer(() => {
-  const { initialLoading, refetch } = useGameUserUpdate();
-
-  useEffect(() => {
-    refetch();
-  }, []);
+  const { initialLoading } = useGameUserUpdate();
 
   return (
     <Styled.GameContainer>
