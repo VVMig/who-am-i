@@ -1,14 +1,18 @@
+import { GameStage } from '../GameStage';
+
 export interface IParticipant {
   id: string;
   displayName: string;
   guessName: string;
   isAdmin: boolean;
+  isFinish: boolean;
 }
 
 export interface IRoom {
   maxParticipants: number;
   participants: IParticipant[];
   shareId: string;
+  gameStage: GameStage;
 }
 
 export interface CreatRoomQuery {
@@ -51,4 +55,14 @@ export interface IsRoomExistQuery {
 
 export interface IKickedGameUser {
   kickedGameUser: string;
+}
+
+export interface IWaitStageNextQuery {
+  waitStageNext: {
+    shareId: string;
+  };
+}
+
+export interface RoomStageSubscription {
+  roomStage: IRoom;
 }

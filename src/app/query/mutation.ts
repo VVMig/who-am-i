@@ -37,3 +37,11 @@ export const KICK_PLAYER = gql`
     }
   }
 `;
+
+export const WAIT_STAGE_NEXT = gql`
+  mutation {
+    waitStageNext {
+      shareId
+    }
+  }
+`;
