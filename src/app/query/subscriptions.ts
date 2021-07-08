@@ -14,3 +14,9 @@ export const GAMEUSER_UPDATE = gql`
     }
   }
 `;
+
+export const GAMEUSER_KICKED = gql`
+  subscription {
+    kickedGameUser
+  }
+`;
