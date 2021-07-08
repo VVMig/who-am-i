@@ -5,4 +5,5 @@ export const GameUser = types.model('GameUser', {
   guessName: types.maybeNull(types.string),
   displayName: types.string,
   isAdmin: types.boolean,
+  isFinish: types.boolean,
 });
