@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { useMutation } from '@apollo/client';
 import { observer } from 'mobx-react-lite';
 import { v4 } from 'uuid';
 
 import { useCustomTranslation } from '../../hooks';
+import { IWaitStageNextQuery, WAIT_STAGE_NEXT } from '../../query';
 import { IGameUser, store } from '../../store';
 import { Header } from './Header';
 import { PlayerCell } from './PlayerCell';
@@ -30,6 +32,16 @@ const renderPlayerCells = (
 export const WaitTable = observer(() => {
   const { t } = useCustomTranslation();
 
+  const [waitStageNext] = useMutation<IWaitStageNextQuery>(WAIT_STAGE_NEXT);
+
+  const onClickStartButton = async () => {
+    try {
+      await waitStageNext();
+    } catch (error) {
+      store.error.setError(error.message);
+    }
+  };
+
   const playerCells = renderPlayerCells(
     store.room.participants,
     store.room.maxParticipants
@@ -41,8 +53,10 @@ export const WaitTable = observer(() => {
         <Header />
         <Styled.Body>{playerCells}</Styled.Body>
         <Styled.Footer>
-          {store.room.participants.length === store.room.maxParticipants && (
-            <Styled.StartButton>{t('game.startGame')}</Styled.StartButton>
+          {store.room.participants.length !== store.room.maxParticipants && (
+            <Styled.StartButton onClick={onClickStartButton}>
+              {t('game.goToNameStage')}
+            </Styled.StartButton>
           )}
         </Styled.Footer>
       </Styled.WaitTable>
