@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const GAMEUSER_UPDATE = gql`
-  subscription {
-    gameUserUpdate {
+  subscription GameUserUpdate($shareId: String) {
+    gameUserUpdate(shareId: $shareId) {
       shareId
       participants {
         id
@@ -16,7 +16,7 @@ export const GAMEUSER_UPDATE = gql`
 `;
 
 export const GAMEUSER_KICKED = gql`
-  subscription {
-    kickedGameUser
+  subscription KickedGameUser($id: String) {
+    kickedGameUser(id: $id)
   }
 `;
