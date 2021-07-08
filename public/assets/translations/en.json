@@ -14,5 +14,6 @@
   "game.waiting": "Waiting",
   "game.startGame": "Start game",
   "game.kickPlayer": "Kick",
-  "game.admin": "Admin"
+  "game.admin": "Admin",
+  "game.goToNameStage": "Start naming"
 }
