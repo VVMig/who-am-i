@@ -12,6 +12,7 @@ declare module 'styled-components' {
       opacityGray: (opacity?: number) => string;
       success: string;
       orange: string;
+      darkGreen: string;
     };
     borderRadius: string;
   }

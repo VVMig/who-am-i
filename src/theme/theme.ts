@@ -12,6 +12,7 @@ export const theme: DefaultTheme = {
     opacityGray: (opacity = 1) => `rgba(79, 79, 79, ${opacity})`,
     success: '#3bf783',
     orange: '#f7960f',
+    darkGreen: '#00a140',
   },
   borderRadius: '10px',
 };
