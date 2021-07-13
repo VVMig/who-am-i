@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+import { roomFields } from './queryAllFields';
+
 export const GET_RANGE_PARTICIPANTS = gql`
   query {
     getRangeParticipants {
@@ -13,16 +15,7 @@ export const GET_RANGE_PARTICIPANTS = gql`
 export const GET_ROOM = gql`
   query GetRoom($shareId: String!) {
     getRoom(shareId: $shareId) {
-      shareId
-      participants {
-        id
-        displayName
-        guessName
-        isAdmin
-        isFinish
-      }
-      maxParticipants
-      gameStage
+      ${roomFields}
     }
   }
 `;
