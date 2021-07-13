@@ -15,5 +15,8 @@
   "game.startGame": "Начать игру",
   "game.kickPlayer": "Выгнать",
   "game.admin": "Администратор",
-  "game.goToNameStage": "Раздать имена"
+  "game.goToNameStage": "Раздать имена",
+  "game.namingStage": "Загадывание имен",
+  "game.guessingName": "Придумайте имя для",
+  "game.selectName": "Выбрать имя"
 }
