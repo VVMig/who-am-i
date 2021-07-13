@@ -53,6 +53,12 @@ const PlayerCell = styled.div<IPlayerCell>`
     css`
       background-color: ${({ theme }) => theme.colors.orange};
     `}
+
+  ${({ isNameSelect }) =>
+    isNameSelect &&
+    css`
+      background-color: ${({ theme }) => theme.colors.darkGreen};
+    `}
 `;
 
 const PlayerName = styled.h3`
@@ -126,6 +132,10 @@ const GuessNameInput = styled.input.attrs(() => ({
   }
 `;
 
+const StatusText = styled.div`
+  font-weight: lighter;
+`;
+
 export const Styled = {
   NameTable,
   NameTableContainer,
@@ -140,4 +150,5 @@ export const Styled = {
   ModalTitle,
   GuessNameInput,
   SelectButton,
+  StatusText,
 };

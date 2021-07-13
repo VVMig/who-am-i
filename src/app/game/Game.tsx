@@ -7,6 +7,7 @@ import { GameStage } from '../GameStage';
 import { useGameStageUpdate, useGameUserUpdate } from '../hooks';
 import { store } from '../store';
 import { NameTable } from './name-table/NameTable';
+import { Play } from './play/Play';
 import { Styled } from './styled';
 import { WaitTable } from './wait-table/WaitTable';
 
@@ -16,6 +17,8 @@ const gameStageSwitch = (gameStage: GameStage) => {
       return <WaitTable />;
     case GameStage.NAME_STAGE:
       return <NameTable />;
+    case GameStage.PLAY_STAGE:
+      return <Play />;
     default:
       return null;
   }
@@ -23,6 +26,7 @@ const gameStageSwitch = (gameStage: GameStage) => {
 
 export const Game = observer(() => {
   const { initialLoading } = useGameUserUpdate();
+
   useGameStageUpdate();
 
   return (
