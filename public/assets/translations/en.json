@@ -16,7 +16,8 @@
   "game.kickPlayer": "Kick",
   "game.admin": "Admin",
   "game.goToNameStage": "Start naming",
-  "game.namingStage": "Guessing names",
-  "game.guessingName": "Make a name for",
-  "game.selectName": "Select name"
+  "game.namingStage": "Choosing names",
+  "game.guessingName": "Choose a name for",
+  "game.selectName": "Choose name",
+  "game.nameSelected": "Name selected"
 }
