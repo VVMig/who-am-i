@@ -19,8 +19,10 @@ export const GET_ROOM = gql`
         displayName
         guessName
         isAdmin
+        isFinish
       }
       maxParticipants
+      gameStage
     }
   }
 `;

@@ -14,5 +14,6 @@
   "game.waiting": "Ожидание",
   "game.startGame": "Начать игру",
   "game.kickPlayer": "Выгнать",
-  "game.admin": "Администратор"
+  "game.admin": "Администратор",
+  "game.goToNameStage": "Раздать имена"
 }
