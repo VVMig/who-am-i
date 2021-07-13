@@ -53,11 +53,12 @@ export const WaitTable = observer(() => {
         <Header />
         <Styled.Body>{playerCells}</Styled.Body>
         <Styled.Footer>
-          {store.room.participants.length !== store.room.maxParticipants && (
-            <Styled.StartButton onClick={onClickStartButton}>
-              {t('game.goToNameStage')}
-            </Styled.StartButton>
-          )}
+          {store.room.participants.length === store.room.maxParticipants &&
+            store.gameUser?.isAdmin && (
+              <Styled.StartButton onClick={onClickStartButton}>
+                {t('game.goToNameStage')}
+              </Styled.StartButton>
+            )}
         </Styled.Footer>
       </Styled.WaitTable>
     </Styled.WaitTableContainer>
