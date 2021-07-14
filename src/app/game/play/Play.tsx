@@ -25,12 +25,10 @@ export const Play = observer(() => {
   return (
     <Styled.PlayContainer>
       <Swiper
-        onInit={(swiper) => {
-          setSwiper(swiper);
-        }}
-        effect={'coverflow'}
-        slidesPerView={'auto'}
-        centeredSlides={true}
+        onInit={setSwiper}
+        effect="coverflow"
+        slidesPerView="auto"
+        centeredSlides
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
