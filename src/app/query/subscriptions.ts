@@ -1,18 +1,11 @@
 import { gql } from '@apollo/client';
 
+import { roomFields } from './queryAllFields';
+
 export const GAMEUSER_UPDATE = gql`
   subscription GameUserUpdate($shareId: String) {
     gameUserUpdate(shareId: $shareId) {
-      shareId
-      participants {
-        id
-        displayName
-        guessName
-        isAdmin
-        isFinish
-      }
-      maxParticipants
-      gameStage
+      ${roomFields}
     }
   }
 `;
@@ -20,16 +13,7 @@ export const GAMEUSER_UPDATE = gql`
 export const ROOM_STAGE = gql`
   subscription RoomStage($shareId: String) {
     roomStage(shareId: $shareId) {
-      shareId
-      participants {
-        id
-        displayName
-        guessName
-        isAdmin
-        isFinish
-      }
-      maxParticipants
-      gameStage
+      ${roomFields}
     }
   }
 `;

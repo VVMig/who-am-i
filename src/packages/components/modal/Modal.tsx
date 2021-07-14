@@ -20,7 +20,7 @@ export const Modal: React.FC<ModalProps> = ({
     modalRef.current?.contains(event.target as Node);
 
   const closeModal: React.MouseEventHandler = (event) => {
-    if (!isModalTarget(event)) handleModalClose();
+    if (!isModalTarget(event) && handleModalClose) handleModalClose();
     event.stopPropagation();
   };
 
@@ -32,9 +32,11 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <Portal>
       <Styled.ModalWrapper onClick={closeModal} onMouseOver={toggleButtonLight}>
-        <Styled.CloseButton isToggleColorized={isButtonHighlighted}>
-          {closeIcon || <>&times;</>}
-        </Styled.CloseButton>
+        {handleModalClose && (
+          <Styled.CloseButton isToggleColorized={isButtonHighlighted}>
+            {closeIcon || <>&times;</>}
+          </Styled.CloseButton>
+        )}
         <Transition in={true} timeout={defaultDelay}>
           {(state) => (
             <Styled.Modal className={`${className} ${state}`} ref={modalRef}>

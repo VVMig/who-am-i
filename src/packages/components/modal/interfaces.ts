@@ -1,5 +1,5 @@
 export interface ModalProps {
-  handleModalClose: () => void;
+  handleModalClose?: () => void;
   className?: string;
   closeIcon?: JSX.Element;
 }

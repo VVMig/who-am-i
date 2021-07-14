@@ -18,5 +18,6 @@
   "game.goToNameStage": "Раздать имена",
   "game.namingStage": "Загадывание имен",
   "game.guessingName": "Придумайте имя для",
-  "game.selectName": "Выбрать имя"
+  "game.selectName": "Выбрать имя",
+  "game.nameSelected": "Имя выбрано"
 }
