@@ -14,7 +14,7 @@ export const Translation = {
   },
   participants: 'participants',
   joinRoom: {
-    title: 'jointRoom.title',
+    title: 'joinRoom.title',
   },
   app: {
     reconnectConfirm: 'app.reconnectConfirm',
