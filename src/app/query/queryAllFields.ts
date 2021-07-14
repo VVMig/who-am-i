@@ -4,6 +4,7 @@ export const participantFields = `
   guessName
   isAdmin
   isFinish
+  color
 `;
 
 export const roomFields = `

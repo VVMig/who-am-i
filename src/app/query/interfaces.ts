@@ -6,6 +6,7 @@ export interface IParticipant {
   guessName: string;
   isAdmin: boolean;
   isFinish: boolean;
+  color: string;
 }
 
 export interface IRoom {
