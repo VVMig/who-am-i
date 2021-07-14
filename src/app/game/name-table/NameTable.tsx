@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { useCustomTranslation } from '../../hooks';
 import { NAME_STAGE_NEXT } from '../../query';
 import { store } from '../../store';
+import { Translation } from '../../Translation';
 import { Header } from './Header';
 import { PlayerCell } from './PlayerCell';
 import { Styled } from './styled';
@@ -35,7 +36,7 @@ export const NameTable = observer(() => {
         <Styled.Footer>
           {store.gameUser?.isAdmin && store.room.isAllHaveGuessName && (
             <Styled.StartButton onClick={onClickStartGame}>
-              {t('game.startGame')}
+              {t(Translation.game.startGame)}
             </Styled.StartButton>
           )}
         </Styled.Footer>

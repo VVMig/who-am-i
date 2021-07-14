@@ -19,5 +19,7 @@
   "game.namingStage": "Choosing names",
   "game.guessingName": "Choose a name for",
   "game.selectName": "Choose name",
-  "game.nameSelected": "Name selected"
+  "game.nameSelected": "Name selected",
+  "game.you": "You",
+  "game.askButton": "Ask" 
 }

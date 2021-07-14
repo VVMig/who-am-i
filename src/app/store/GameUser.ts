@@ -6,4 +6,5 @@ export const GameUser = types.model('GameUser', {
   displayName: types.string,
   isAdmin: types.boolean,
   isFinish: types.boolean,
+  color: types.string,
 });

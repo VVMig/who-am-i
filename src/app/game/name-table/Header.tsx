@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useCustomTranslation } from '../../hooks';
+import { Translation } from '../../Translation';
 import { Styled } from './styled';
 
 export const Header = () => {
@@ -8,7 +9,7 @@ export const Header = () => {
 
   return (
     <Styled.Header>
-      <Styled.Title>{t('game.namingStage')}</Styled.Title>
+      <Styled.Title>{t(Translation.game.namingStage)}</Styled.Title>
     </Styled.Header>
   );
 };
