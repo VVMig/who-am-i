@@ -7,6 +7,7 @@ import { PlayerSpinner } from '../../../packages';
 import { useCustomTranslation } from '../../hooks';
 import { KICK_PLAYER } from '../../query';
 import { IGameUser, store } from '../../store';
+import { Translation } from '../../Translation';
 import { Styled } from './styled';
 
 interface Props {
@@ -41,16 +42,16 @@ export const PlayerCell: React.FC<Props> = observer(({ player }) => {
           <Styled.PlayerName>{player.displayName}</Styled.PlayerName>
           {!isCurrentPlayer && store.gameUser?.isAdmin && (
             <Styled.KickPlayer onClick={onClickKick}>
-              {t('game.kickPlayer')}
+              {t(Translation.game.kickPlayer)}
             </Styled.KickPlayer>
           )}
           {player.isAdmin && (
-            <Styled.AdminText>{t('game.admin')}</Styled.AdminText>
+            <Styled.AdminText>{t(Translation.game.admin)}</Styled.AdminText>
           )}
         </>
       ) : (
         <>
-          <Styled.WaitText>{t('game.waiting')}...</Styled.WaitText>
+          <Styled.WaitText>{t(Translation.game.waiting)}...</Styled.WaitText>
           <PlayerSpinner />
         </>
       )}

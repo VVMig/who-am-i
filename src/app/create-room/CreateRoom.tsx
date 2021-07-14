@@ -14,6 +14,7 @@ import {
 } from '../query';
 import { RoutesEnum } from '../RoutesEnum';
 import { store } from '../store';
+import { Translation } from '../Translation';
 import { MaxParticipants } from './MaxParticipants';
 import { Styled } from './styled';
 
@@ -69,7 +70,7 @@ export const CreateRoom = observer(() => {
         <Spinner />
       ) : (
         <>
-          <Styled.Title>{t('createRoom.title')}</Styled.Title>
+          <Styled.Title>{t(Translation.createRoom.title)}</Styled.Title>
           {rangeData?.getRangeParticipants && (
             <MaxParticipants
               maxLimit={rangeData.getRangeParticipants.max}
@@ -79,9 +80,11 @@ export const CreateRoom = observer(() => {
               onChangeRange={onChangeRange}
             />
           )}
-          <Button onClick={onClickCreateRoom}>{t('menu.createRoom')}</Button>
+          <Button onClick={onClickCreateRoom}>
+            {t(Translation.menu.createRoom)}
+          </Button>
           <Button onClick={onClickBackToMenu}>
-            {t('createRoom.backToMenu')}
+            {t(Translation.createRoom.backToMenu)}
           </Button>
         </>
       )}

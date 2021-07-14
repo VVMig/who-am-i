@@ -17,6 +17,7 @@ import {
 import { RoutesEnum } from './RoutesEnum';
 import { RoutesSwitch } from './RoutesSwitch';
 import { store } from './store';
+import { Translation } from './Translation';
 
 export const App = () => {
   const { t } = useCustomTranslation();
@@ -70,7 +71,7 @@ export const App = () => {
     <>
       {isModalShow && (
         <ConfirmModal
-          text={t('app.reconnectConfirm')}
+          text={t(Translation.app.reconnectConfirm)}
           onClickDenied={leave}
           onClickConfirm={reconnect}
           handleModalClose={leave}

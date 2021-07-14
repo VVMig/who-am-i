@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 
 import { useCustomTranslation } from '../../hooks';
 import { IGameUser, store } from '../../store';
+import { Translation } from '../../Translation';
 import { NameModal } from './NameModal';
 import { Styled } from './styled';
 
@@ -27,7 +28,7 @@ export const PlayerCell: React.FC<Props> = observer(({ player }) => {
         <NameModal />
       )}
       <Styled.StatusText>
-        {player.guessName ? t('game.nameSelected') : ''}
+        {player.guessName ? t(Translation.game.nameSelected) : ''}
       </Styled.StatusText>
     </Styled.PlayerCell>
   );

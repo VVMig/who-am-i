@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useCustomTranslation } from '../../../hooks';
+import { Translation } from '../../../Translation';
 import { Styled } from './styled';
 
 export const QuestionBody = () => {
@@ -8,10 +9,12 @@ export const QuestionBody = () => {
 
   return (
     <>
-      <Styled.PlayerName>{t('game.you')}</Styled.PlayerName>
+      <Styled.PlayerName>{t(Translation.game.you)}</Styled.PlayerName>
       <Styled.QuestionContainer>
         <Styled.QuestionInput />
-        <Styled.QuestionButton>{t('game.askButton')}</Styled.QuestionButton>
+        <Styled.QuestionButton>
+          {t(Translation.game.askButton)}
+        </Styled.QuestionButton>
       </Styled.QuestionContainer>
     </>
   );

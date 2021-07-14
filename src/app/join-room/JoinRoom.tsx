@@ -9,6 +9,7 @@ import { useCustomTranslation } from '../hooks';
 import { JoinRoomQuery, JOIN_ROOM } from '../query';
 import { RoutesEnum } from '../RoutesEnum';
 import { store } from '../store';
+import { Translation } from '../Translation';
 import { Styled } from './styled';
 
 export const JoinRoom = observer(() => {
@@ -46,15 +47,17 @@ export const JoinRoom = observer(() => {
 
   return (
     <Styled.JoinRoom>
-      <Styled.Title>{t('joinRoom.title')}</Styled.Title>
+      <Styled.Title>{t(Translation.joinRoom.title)}</Styled.Title>
       <Styled.RoomIdInput
-        placeholder={t('joinRoom.title')}
+        placeholder={t(Translation.joinRoom.title)}
         maxLength={6}
         onChange={(e) => setShareId(e.currentTarget.value)}
         value={shareId}
       />
-      <Button onClick={onClickJoinRoom}>{t('menu.joinRoom')}</Button>
-      <Button onClick={onClickBackToMenu}>{t('createRoom.backToMenu')}</Button>
+      <Button onClick={onClickJoinRoom}>{t(Translation.menu.joinRoom)}</Button>
+      <Button onClick={onClickBackToMenu}>
+        {t(Translation.createRoom.backToMenu)}
+      </Button>
     </Styled.JoinRoom>
   );
 });

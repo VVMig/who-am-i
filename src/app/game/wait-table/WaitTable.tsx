@@ -7,6 +7,7 @@ import { v4 } from 'uuid';
 import { useCustomTranslation } from '../../hooks';
 import { IWaitStageNextQuery, WAIT_STAGE_NEXT } from '../../query';
 import { IGameUser, store } from '../../store';
+import { Translation } from '../../Translation';
 import { Header } from './Header';
 import { PlayerCell } from './PlayerCell';
 import { Styled } from './styled';
@@ -56,7 +57,7 @@ export const WaitTable = observer(() => {
           {store.room.participants.length === store.room.maxParticipants &&
             store.gameUser?.isAdmin && (
               <Styled.StartButton onClick={onClickStartButton}>
-                {t('game.goToNameStage')}
+                {t(Translation.game.goToNameStage)}
               </Styled.StartButton>
             )}
         </Styled.Footer>

@@ -10,7 +10,7 @@ export const Play = observer(() => {
   return (
     <Styled.PlayContainer>
       {store.room.participants.map((participant) => (
-        <PlayerCard player={participant} />
+        <PlayerCard player={participant} key={participant.id} />
       ))}
     </Styled.PlayContainer>
   );

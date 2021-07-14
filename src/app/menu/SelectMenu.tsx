@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '../../packages';
 import { useCustomTranslation } from '../hooks';
 import { RoutesEnum } from '../RoutesEnum';
+import { Translation } from '../Translation';
 import { Styled } from './styled';
 
 export const SelectMenu = () => {
@@ -15,10 +16,10 @@ export const SelectMenu = () => {
   return (
     <Styled.SelectMenu>
       <Button onClick={() => history.push(RoutesEnum.JoinRoom)}>
-        {t('menu.joinRoom')}
+        {t(Translation.menu.joinRoom)}
       </Button>
       <Button onClick={() => history.push(RoutesEnum.CreateRoom)}>
-        {t('menu.createRoom')}
+        {t(Translation.menu.createRoom)}
       </Button>
     </Styled.SelectMenu>
   );
