@@ -33,10 +33,6 @@ export const Room = types
         (participant) => participant.id === id
       );
 
-      if (!user) {
-        return true;
-      }
-
-      return !!user.guessName;
+      return !user || !!user.guessName;
     },
   }));
