@@ -20,13 +20,13 @@ export const PlayerCell: React.FC<Props> = observer(({ player }) => {
   return (
     <Styled.PlayerCell
       isCurrentPlayer={isCurrentPlayer}
-      isNaming={store.room.nowNaming?.id === player.id}
       isNameSelect={!!player.guessName}
     >
       <Styled.PlayerName>{player.displayName}</Styled.PlayerName>
-      {isCurrentPlayer && store.room.nameSeter?.id === store.gameUser?.id && (
-        <NameModal />
-      )}
+      {isCurrentPlayer &&
+        !store.room.isUserHaveGuessName(player.namingUser?.id) && (
+          <NameModal player={player} />
+        )}
       <Styled.StatusText>
         {player.guessName ? t(Translation.game.nameSelected) : ''}
       </Styled.StatusText>

@@ -5,11 +5,15 @@ import { observer } from 'mobx-react-lite';
 
 import { useCustomTranslation } from '../../hooks';
 import { GUESS_NAME } from '../../query';
-import { store } from '../../store';
+import { IGameUser, store } from '../../store';
 import { Translation } from '../../Translation';
 import { Styled } from './styled';
 
-export const NameModal = observer(() => {
+interface Props {
+  player: IGameUser;
+}
+
+export const NameModal: React.FC<Props> = observer(({ player }) => {
   const [guessName] = useMutation(GUESS_NAME);
   const [selectName, setSelectName] = useState('');
 
@@ -24,7 +28,7 @@ export const NameModal = observer(() => {
       await guessName({
         variables: {
           name: selectName,
-          id: store.room.nowNaming?.id,
+          id: player.namingUser?.id,
         },
       });
     } catch (error) {
@@ -35,7 +39,7 @@ export const NameModal = observer(() => {
   return (
     <Styled.NameModal>
       <Styled.ModalTitle>
-        {t(Translation.game.guessingName)} {store.room.nowNaming?.displayName}
+        {t(Translation.game.guessingName)} {player.namingUser?.displayName}
       </Styled.ModalTitle>
       <Styled.GuessNameInput onChange={onChangeName} value={selectName} />
       {selectName.trim() && (

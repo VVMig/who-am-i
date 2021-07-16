@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 import SwiperCore, { EffectCoverflow, Controller } from 'swiper/core';
