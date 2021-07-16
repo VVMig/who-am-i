@@ -7,6 +7,8 @@ export interface IParticipant {
   isAdmin: boolean;
   isFinish: boolean;
   color: string;
+  namingUser: IParticipant;
+  seterUser: IParticipant;
 }
 
 export interface IRoom {
