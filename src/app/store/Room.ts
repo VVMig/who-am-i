@@ -18,8 +18,6 @@ export const Room = types
       ]),
       GameStage.WAIT_STAGE
     ),
-    nowNaming: types.maybeNull(GameUser),
-    nameSeter: types.maybeNull(GameUser),
   })
   .views((self) => ({
     get isAllHaveGuessName() {
@@ -27,5 +25,14 @@ export const Room = types
         (result, participant) => result && !!participant.guessName,
         true
       );
+    },
+  }))
+  .actions((self) => ({
+    isUserHaveGuessName(id?: string) {
+      const user = self.participants.find(
+        (participant) => participant.id === id
+      );
+
+      return !user || !!user.guessName;
     },
   }));

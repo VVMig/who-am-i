@@ -48,12 +48,6 @@ const PlayerCell = styled.div<IPlayerCell>`
       background-color: ${({ theme }) => theme.colors.lightBlue};
     `}
 
-  ${({ isNaming }) =>
-    isNaming &&
-    css`
-      background-color: ${({ theme }) => theme.colors.orange};
-    `}
-
   ${({ isNameSelect }) =>
     isNameSelect &&
     css`
