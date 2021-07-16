@@ -6,9 +6,9 @@ import { UserIconProps } from '../interfaces';
 const Card = styled.div`
   max-width: 200px;
   width: 100%;
+  height: 100%;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 0 3px ${({ theme }) => theme.colors.lightGray};
   display: flex;
   flex-direction: column;
   align-items: center;
