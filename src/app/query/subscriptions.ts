@@ -18,6 +18,14 @@ export const ROOM_STAGE = gql`
   }
 `;
 
+export const QUESTION_UPDATE = gql`
+  subscription QuestionUpdate($shareId: String) {
+    questionUpdate(shareId: $shareId) {
+      ${roomFields}
+    }
+  }
+`;
+
 export const GAMEUSER_KICKED = gql`
   subscription KickedGameUser($id: String) {
     kickedGameUser(id: $id)

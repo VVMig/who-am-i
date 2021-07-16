@@ -16,6 +16,7 @@ export interface IRoom {
   participants: IParticipant[];
   shareId: string;
   gameStage: GameStage;
+  question: string;
 }
 
 export interface CreatRoomQuery {
@@ -64,6 +65,10 @@ export interface IWaitStageNextQuery {
   waitStageNext: {
     shareId: string;
   };
+}
+
+export interface QuestionUpdateSubscription {
+  questionUpdate: IRoom;
 }
 
 export interface RoomStageSubscription {
