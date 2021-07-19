@@ -13,12 +13,21 @@ interface Props {
   isActive: boolean;
 }
 
+const renderCorrectAnswers = (amount = 0) => {
+  return Array.from({
+    length: amount,
+  }).map(() => <Styled.Answer>{icons.Correct}</Styled.Answer>);
+};
+
 export const PlayerCard: React.FC<Props> = observer(({ player, isActive }) => {
   const isCurrentPlayer = store.gameUser && player?.id === store.gameUser?.id;
 
   return (
     <Styled.Card>
       {!isActive && <Styled.CardCover />}
+      <Styled.CorrectAnswers>
+        {renderCorrectAnswers(player.correctAnswers)}
+      </Styled.CorrectAnswers>
       <Styled.UserIcon iconColor={player.color}>
         {icons.UserCircle}
       </Styled.UserIcon>
