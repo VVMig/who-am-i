@@ -10,13 +10,15 @@ import { Styled } from './styled';
 
 interface Props {
   player: IGameUser;
+  isActive: boolean;
 }
 
-export const PlayerCard: React.FC<Props> = observer(({ player }) => {
+export const PlayerCard: React.FC<Props> = observer(({ player, isActive }) => {
   const isCurrentPlayer = store.gameUser && player?.id === store.gameUser?.id;
 
   return (
     <Styled.Card>
+      {!isActive && <Styled.CardCover />}
       <Styled.UserIcon iconColor={player.color}>
         {icons.UserCircle}
       </Styled.UserIcon>

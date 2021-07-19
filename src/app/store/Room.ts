@@ -4,6 +4,12 @@ import { GameStage } from '../GameStage';
 import { GameUser } from './GameUser';
 
 const defaultMaxParticipants = 0;
+const initStep = 0;
+
+const Question = types.model('Question', {
+  from: types.maybeNull(types.string),
+  value: types.maybeNull(types.string),
+});
 
 export const Room = types
   .model('Room', {
@@ -18,7 +24,8 @@ export const Room = types
       ]),
       GameStage.WAIT_STAGE
     ),
-    question: types.maybeNull(types.string),
+    question: types.maybeNull(Question),
+    step: types.optional(types.number, initStep),
   })
   .views((self) => ({
     get isAllHaveGuessName() {
@@ -26,6 +33,12 @@ export const Room = types
         (result, participant) => result && !!participant.guessName,
         true
       );
+    },
+    get questionText() {
+      return self.question?.value;
+    },
+    get currentPlayerIndex() {
+      return self.step % self.participants.length;
     },
   }))
   .actions((self) => ({
@@ -35,5 +48,8 @@ export const Room = types
       );
 
       return !user || !!user.guessName;
+    },
+    incrementStep() {
+      self.step += 1;
     },
   }));

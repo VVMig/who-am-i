@@ -16,7 +16,11 @@ export interface IRoom {
   participants: IParticipant[];
   shareId: string;
   gameStage: GameStage;
-  question: string;
+  question: {
+    from: string;
+    value: string;
+  };
+  step: number;
 }
 
 export interface CreatRoomQuery {

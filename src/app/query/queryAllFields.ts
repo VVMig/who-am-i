@@ -22,7 +22,11 @@ export const roomFields = `
   participants {
     ${participantFields}
   }
-  question
+  question {
+    from
+    value
+  }
   maxParticipants
   gameStage
+  step
 `;
