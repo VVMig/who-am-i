@@ -41,6 +41,11 @@ export const Room = types
       return self.step % self.participants.length;
     },
   }))
+  .views((self) => ({
+    get currentPlayer() {
+      return self.participants[self.currentPlayerIndex];
+    },
+  }))
   .actions((self) => ({
     isUserHaveGuessName(id?: string) {
       const user = self.participants.find(
