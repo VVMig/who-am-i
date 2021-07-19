@@ -33,5 +33,6 @@ export const Translation = {
     nameSelected: 'game.nameSelected',
     you: 'game.you',
     askButton: 'game.askButton',
+    waitAnswer: 'game.waitAnswer',
   },
 };
