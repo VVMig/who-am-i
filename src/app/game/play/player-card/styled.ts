@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button } from '../../../../packages';
+import { Button, zIndex } from '../../../../packages';
 import { UserIconProps } from '../interfaces';
 
 const Card = styled.div`
@@ -13,6 +13,14 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px 5px 50px;
+  position: relative;
+`;
+
+const CardCover = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: ${zIndex.cardCover};
 `;
 
 const UserIcon = styled.div<UserIconProps>`
@@ -87,4 +95,5 @@ export const Styled = {
   QuestionInput,
   QuestionButton,
   QuestionContainer,
+  CardCover,
 };
