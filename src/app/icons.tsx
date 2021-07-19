@@ -5,6 +5,7 @@ import {
   XCircle,
   Clipboard,
   PersonCircle,
+  CheckCircle,
 } from 'react-bootstrap-icons';
 
 enum IconType {
@@ -12,6 +13,7 @@ enum IconType {
   UserCircle = 'UserCircle',
   Cross = 'Cross',
   Clipboard = 'Clipboard',
+  Correct = 'Correct',
 }
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -19,4 +21,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Cross]: <XCircle />,
   [IconType.Clipboard]: <Clipboard />,
   [IconType.UserCircle]: <PersonCircle />,
+  [IconType.Correct]: <CheckCircle />,
 };
