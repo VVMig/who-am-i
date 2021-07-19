@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { observer } from 'mobx-react-lite';
+import { v4 } from 'uuid';
 
 import { icons } from '../../../icons';
 import { IGameUser, store } from '../../../store';
@@ -16,7 +17,7 @@ interface Props {
 const renderCorrectAnswers = (amount = 0) => {
   return Array.from({
     length: amount,
-  }).map(() => <Styled.Answer>{icons.Correct}</Styled.Answer>);
+  }).map(() => <Styled.Answer key={v4()}>{icons.Correct}</Styled.Answer>);
 };
 
 export const PlayerCard: React.FC<Props> = observer(({ player, isActive }) => {
