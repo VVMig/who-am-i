@@ -21,5 +21,6 @@
   "game.selectName": "Выбрать имя",
   "game.nameSelected": "Имя выбрано",
   "game.you": "Вы",
-  "game.askButton": "Спросить" 
+  "game.askButton": "Спросить",
+  "game.waitAnswer": "Подождите пока остальные игроки ответят"
 }
