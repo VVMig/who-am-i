@@ -1,5 +1,7 @@
 import { types } from 'mobx-state-tree';
 
+const defaultCorrectAnswers = 0;
+
 const QueueUser = types.model('QueueUser', {
   id: types.string,
   displayName: types.string,
@@ -14,4 +16,5 @@ export const GameUser = types.model('GameUser', {
   color: types.string,
   namingUser: types.maybeNull(QueueUser),
   seterUser: types.maybeNull(QueueUser),
+  correctAnswers: types.optional(types.number, defaultCorrectAnswers),
 });
