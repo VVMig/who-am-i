@@ -54,6 +54,14 @@ export const NAME_STAGE_NEXT = gql`
   }
 `;
 
+export const QUESTION_SEND = gql`
+  mutation SendQuestion($question: String) {
+    sendQuestion(question: $question) {
+      shareId
+    }
+  }
+`;
+
 export const WAIT_STAGE_NEXT = gql`
   mutation {
     waitStageNext {

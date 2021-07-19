@@ -18,6 +18,7 @@ export const Room = types
       ]),
       GameStage.WAIT_STAGE
     ),
+    question: types.maybeNull(types.string),
   })
   .views((self) => ({
     get isAllHaveGuessName() {
