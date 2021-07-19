@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { appearStorm } from '../../configs';
+import { zIndex } from '../../zIndex';
 
 const Dropdown = styled.div`
   position: absolute;
@@ -12,6 +13,7 @@ const Dropdown = styled.div`
   overflow: hidden;
   max-height: 150px;
   overflow: auto;
+  z-index: ${zIndex.dropdown};
 
   &.entering {
     animation: ${appearStorm} 200ms ease-out both;
