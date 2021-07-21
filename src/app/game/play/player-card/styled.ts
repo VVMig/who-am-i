@@ -16,6 +16,22 @@ const Card = styled.div`
   position: relative;
 `;
 
+const CorrectAnswers = styled.div`
+  display: flex;
+  width: 100%;
+  height: 35px;
+  justify-content: center;
+
+  * + * {
+    margin-left: 2px;
+  }
+`;
+
+const Answer = styled.div`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.success};
+`;
+
 const CardCover = styled.div`
   position: absolute;
   width: 100%;
@@ -96,4 +112,6 @@ export const Styled = {
   QuestionButton,
   QuestionContainer,
   CardCover,
+  CorrectAnswers,
+  Answer,
 };

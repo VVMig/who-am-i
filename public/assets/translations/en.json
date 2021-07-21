@@ -21,5 +21,6 @@
   "game.selectName": "Choose name",
   "game.nameSelected": "Name selected",
   "game.you": "You",
-  "game.askButton": "Ask" 
+  "game.askButton": "Ask",
+  "game.waitAnswer": "Wait for the rest of the players to answer"
 }

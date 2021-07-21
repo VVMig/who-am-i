@@ -15,6 +15,7 @@ export const participantFields = `
     displayName
     guessName
   }
+  correctAnswers
 `;
 
 export const roomFields = `

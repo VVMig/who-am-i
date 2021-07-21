@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { useMutation } from '@apollo/client';
 import { observer } from 'mobx-react-lite';
 import SwiperCore, { EffectCoverflow, Controller } from 'swiper/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { ConfirmModal } from '../../../packages';
-import { ANSWER_SEND } from '../../query';
 import { store } from '../../store';
+import { Answer } from './Answer';
 import { PlayerCard } from './player-card/PlayerCard';
 import { Styled } from './styled';
 
@@ -28,24 +26,11 @@ const slideNext = (swiper: SwiperCore, index: number) => {
 
 export const Play = observer(() => {
   const [swiper, setSwiper] = useState<SwiperCore | undefined>();
-  const [sendAnswer] = useMutation(ANSWER_SEND);
 
   const initialSlide = (swiper: SwiperCore) => {
     setSwiper(swiper);
 
     slideNext(swiper, store.room.currentPlayerIndex);
-  };
-
-  const onClickAnswer = async (answer: boolean) => {
-    try {
-      await sendAnswer({
-        variables: {
-          answer,
-        },
-      });
-    } catch (error) {
-      store.error.setError(error.message);
-    }
   };
 
   useEffect(() => {
@@ -76,13 +61,7 @@ export const Play = observer(() => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {store.room.questionText && (
-        <ConfirmModal
-          onClickConfirm={() => onClickAnswer(true)}
-          onClickDenied={() => onClickAnswer(false)}
-          text={store.room.questionText}
-        />
-      )}
+      <Answer />
     </Styled.PlayContainer>
   );
 });

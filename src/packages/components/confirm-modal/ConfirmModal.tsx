@@ -6,7 +6,7 @@ import { Styled } from './styled';
 interface Props extends ModalProps {
   onClickConfirm: () => void;
   onClickDenied: () => void;
-  text: string;
+  text?: string | null;
 }
 
 export const ConfirmModal: React.FC<Props> = ({

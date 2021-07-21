@@ -9,6 +9,7 @@ export interface IParticipant {
   color: string;
   namingUser: IParticipant;
   seterUser: IParticipant;
+  correctAnswers: number;
 }
 
 export interface IRoom {
