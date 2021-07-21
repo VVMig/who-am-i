@@ -68,6 +68,13 @@ const GuessName = styled.h2`
   color: ${({ theme }) => theme.colors.black};
 `;
 
+const Finish = styled.h2`
+  padding-top: 5px;
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: lighter;
+`;
+
 const QuestionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,4 +121,5 @@ export const Styled = {
   CardCover,
   CorrectAnswers,
   Answer,
+  Finish,
 };

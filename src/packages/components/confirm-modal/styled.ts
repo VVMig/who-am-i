@@ -21,7 +21,9 @@ const Title = styled.h2`
 
 const ChoiceContainer = styled.div`
   display: flex;
+  width: 100%;
   padding-top: 10px;
+  justify-content: center;
 
   & * + * {
     margin-left: 5px;
@@ -42,6 +44,17 @@ const ConfirmButton = styled(Button)`
   }
 `;
 
+const GuessButton = styled(ConfirmButton)`
+  &:hover {
+    background-color: transparent;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+`;
+
 const DeniedButton = styled(ConfirmButton)`
   &:hover {
     background-color: ${({ theme }) => theme.colors.red};
@@ -54,4 +67,5 @@ export const Styled = {
   ConfirmButton,
   ChoiceContainer,
   DeniedButton,
+  GuessButton,
 };

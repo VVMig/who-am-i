@@ -33,11 +33,12 @@ export const PlayerCard: React.FC<Props> = observer(({ player, isActive }) => {
         {icons.UserCircle}
       </Styled.UserIcon>
       {isCurrentPlayer ? (
-        <QuestionBody />
+        <QuestionBody isFinish={player.isFinish} guessName={player.guessName} />
       ) : (
         <GeneralBody
           displayName={player.displayName}
           guessName={player.guessName}
+          isFinish={player.isFinish}
         />
       )}
     </Styled.Card>

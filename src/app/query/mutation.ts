@@ -71,8 +71,8 @@ export const WAIT_STAGE_NEXT = gql`
 `;
 
 export const ANSWER_SEND = gql`
-  mutation SendAnswer($answer: Boolean) {
-    sendAnswer(answer: $answer) {
+  mutation SendAnswer($answer: Boolean, $isGuessed: Boolean) {
+    sendAnswer(answer: $answer, isGuessed: $isGuessed) {
       shareId
     }
   }

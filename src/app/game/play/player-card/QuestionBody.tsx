@@ -8,7 +8,12 @@ import { store } from '../../../store';
 import { Translation } from '../../../Translation';
 import { Styled } from './styled';
 
-export const QuestionBody = () => {
+interface Props {
+  isFinish: boolean;
+  guessName?: string | null;
+}
+
+export const QuestionBody: React.FC<Props> = ({ isFinish, guessName }) => {
   const [question, setQuestion] = useState('');
   const { t } = useCustomTranslation();
   const [sendQuestion] = useMutation(QUESTION_SEND);
@@ -40,12 +45,19 @@ export const QuestionBody = () => {
   return (
     <>
       <Styled.PlayerName>{t(Translation.game.you)}</Styled.PlayerName>
-      <Styled.QuestionContainer>
-        <Styled.QuestionInput value={question} onChange={onChangeQuestion} />
-        <Styled.QuestionButton onClick={onClickAsk}>
-          {t(Translation.game.askButton)}
-        </Styled.QuestionButton>
-      </Styled.QuestionContainer>
+      {isFinish ? (
+        <Styled.GuessNameContainer>
+          <Styled.GuessName>{guessName}</Styled.GuessName>
+          <Styled.Finish>{t(Translation.game.guessed)}</Styled.Finish>
+        </Styled.GuessNameContainer>
+      ) : (
+        <Styled.QuestionContainer>
+          <Styled.QuestionInput value={question} onChange={onChangeQuestion} />
+          <Styled.QuestionButton onClick={onClickAsk}>
+            {t(Translation.game.askButton)}
+          </Styled.QuestionButton>
+        </Styled.QuestionContainer>
+      )}
     </>
   );
 };
