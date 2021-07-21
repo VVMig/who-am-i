@@ -18,12 +18,13 @@ export const Answer = observer(() => {
     setIsAnswered(false);
   }, [store.room.questionText]);
 
-  const onClickAnswer = async (answer: boolean) => {
+  const onClickAnswer = async (answer: boolean, isGuessed = false) => {
     try {
       setIsAnswered(true);
       await sendAnswer({
         variables: {
           answer,
+          isGuessed,
         },
       });
     } catch (error) {
@@ -37,6 +38,7 @@ export const Answer = observer(() => {
         onClickConfirm={() => onClickAnswer(true)}
         onClickDenied={() => onClickAnswer(false)}
         text={store.room.questionText}
+        onClickGuessed={() => onClickAnswer(true, true)}
       />
     ) : (
       <WaitModal />
