@@ -22,5 +22,6 @@
   "game.nameSelected": "Имя выбрано",
   "game.you": "Вы",
   "game.askButton": "Спросить",
-  "game.waitAnswer": "Подождите пока остальные игроки ответят"
+  "game.waitAnswer": "Подождите пока остальные игроки ответят",
+  "game.guessed": "Отгадал"
 }

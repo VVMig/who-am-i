@@ -34,5 +34,6 @@ export const Translation = {
     you: 'game.you',
     askButton: 'game.askButton',
     waitAnswer: 'game.waitAnswer',
+    guessed: 'game.guessed',
   },
 };
