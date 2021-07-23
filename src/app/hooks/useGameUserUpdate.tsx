@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
 import { useQuery, useSubscription } from '@apollo/client';
-import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 
-import { CookiesEnum } from '../CookiesEnum';
 import {
+  AUTHORIZATION,
+  AuthorizationQuery,
   GameUserUpdateSubscription,
   GAMEUSER_KICKED,
   GAMEUSER_UPDATE,
@@ -20,7 +20,6 @@ import { useQueryParams } from './useQueryParams';
 export const useGameUserUpdate = () => {
   const history = useHistory();
 
-  const [cookies] = useCookies();
   const shareId = useQueryParams('id');
 
   const { loading, refetch } = useQuery<GetRoomQuery>(GET_ROOM, {
@@ -28,13 +27,13 @@ export const useGameUserUpdate = () => {
       shareId,
     },
   });
+  const { data } = useQuery<AuthorizationQuery>(AUTHORIZATION);
 
   const initialQuery = async () => {
     try {
-      const { data } = await refetch();
+      const { data: room } = await refetch();
 
-      store.setRoom(data.getRoom);
-      store.setGameUser(cookies[CookiesEnum.GameAuth].gameUserId);
+      store.setRoom(room.getRoom);
     } catch (error) {
       store.error.setError(error.message);
     }
@@ -49,13 +48,16 @@ export const useGameUserUpdate = () => {
   const { data: kickedUser, error: kickedError } =
     useSubscription<IKickedGameUser>(GAMEUSER_KICKED, {
       variables: {
-        id: cookies[CookiesEnum.GameAuth].gameUserId,
+        id: store.gameUser?.id,
       },
     });
 
   useEffect(() => {
-    initialQuery();
-  }, []);
+    if (data?.authorize) {
+      store.setGameUser(data.authorize);
+      initialQuery();
+    }
+  }, [data]);
 
   useEffect(() => {
     if (updatedError) {

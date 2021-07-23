@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { roomFields } from './queryAllFields';
+import { participantFields, roomFields } from './queryAllFields';
 
 export const GET_RANGE_PARTICIPANTS = gql`
   query {
@@ -23,5 +23,13 @@ export const GET_ROOM = gql`
 export const IS_ROOM_EXIST = gql`
   query {
     isRoomExist
+  }
+`;
+
+export const AUTHORIZATION = gql`
+  query {
+    authorize { 
+      ${participantFields}
+    }
   }
 `;

@@ -12,6 +12,10 @@ export interface IParticipant {
   correctAnswers: number;
 }
 
+export interface AuthorizationQuery {
+  authorize: IParticipant;
+}
+
 export interface IRoom {
   maxParticipants: number;
   participants: IParticipant[];

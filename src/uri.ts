@@ -1,3 +1,3 @@
-export const serverUri = 'http://localhost:4000/graphql';
+export const serverUri = 'https://who-am-i-game-server.herokuapp.com/graphql';
 
-export const wsUri = 'ws://localhost:4000/subscriptions';
+export const wsUri = 'wss://who-am-i-game-server.herokuapp.com/subscriptions';
